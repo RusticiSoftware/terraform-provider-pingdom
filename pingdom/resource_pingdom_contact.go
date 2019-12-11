@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/RusticiSoftware/go-pingdom/pingdom"
 	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/russellcardullo/go-pingdom/pingdom"
 )
 
 func resourcePingdomContact() *schema.Resource {

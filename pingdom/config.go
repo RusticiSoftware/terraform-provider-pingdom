@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/russellcardullo/go-pingdom/pingdom"
+	"github.com/RusticiSoftware/go-pingdom/pingdom"
 )
 
 // Config respresents the client configuration

@@ -8,7 +8,7 @@ This currently only supports working with basic HTTP and ping checks.
 
 ### Using released versions ###
 
-Prebuild releases for most platforms are available [here](https://github.com/russellcardullo/terraform-provider-pingdom/releases).
+Prebuild releases for most platforms are available [here](https://github.com/RusticiSoftware/terraform-provider-pingdom/releases).
 Download the release corresponding to your particular platform and place in `$HOME/.terraform.d/plugins/[os]_[arch]`.  For instance
 on Linux AMD64 the path would be `$HOME/.terraform.d/plugins/linux_amd64`.
 

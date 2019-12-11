@@ -4,10 +4,10 @@ import (
 	"os"
 	"testing"
 
+	"github.com/RusticiSoftware/go-pingdom/pingdom"
 	"github.com/hashicorp/terraform/config"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
-	"github.com/russellcardullo/go-pingdom/pingdom"
 )
 
 var testAccProviders map[string]terraform.ResourceProvider
