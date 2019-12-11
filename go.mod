@@ -1,12 +1,14 @@
-module github.com/russellcardullo/terraform-provider-pingdom
+module github.com/grnhse/terraform-provider-pingdom
 
 go 1.12
 
+replace github.com/russellcardullo/go-pingdom => github.com/grnhse/go-pingdom v1.0.1-0.20190925174058-b35ef1008725
+
+replace github.com/russellcardullo/terraform-provider-pingdom => ./
+
 require (
-	github.com/hashicorp/go-hclog v0.0.0-20190109152822-4783caec6f2e // indirect
-	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/hashicorp/terraform v0.12.17
-	github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d // indirect
 	github.com/mitchellh/mapstructure v1.1.2
 	github.com/russellcardullo/go-pingdom v1.0.0
+	github.com/russellcardullo/terraform-provider-pingdom v1.0.0
 )

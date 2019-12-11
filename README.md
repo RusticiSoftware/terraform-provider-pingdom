@@ -231,8 +231,6 @@ For the HTTP checks, you can set these attributes:
 
   * **probefilters** - Region from which the check should originate. One of NA, EU, APAC, or LATAM. Should be in the format "region:NA"
 
-  * **publicreport** - If `true`, this check will be included in the public report (default: `false`)
-
 #### TCP specific attibutes ####
 
 For the TCP checks, you can set these attributes:
