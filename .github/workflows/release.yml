@@ -38,6 +38,6 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./terraform-provider-pingdom-${{ matrix.os }}-${{ matrix.arch }}
-          asset_name: terraform-provider-pingdom-${{ matrix.os }}-${{ matrix.arch }}
+          asset_name: terraform-provider-pingdom_${{ github.event.release.tag_name }}-${{ matrix.os }}-${{ matrix.arch }}
           asset_content_type: application/octet-stream
 
