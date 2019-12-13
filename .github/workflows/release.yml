@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build releases for relevant OSes
+    name: Build
 
     strategy:
       matrix:
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       # Cross-compile instructions pulled from
       # https://hub.docker.com/_/golang/
@@ -32,7 +32,7 @@ jobs:
           GOARCH: ${{ matrix.arch }}
 
       - name: Attach binary to release
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v1.0.1
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./terraform-provider-pingdom-${{ matrix.os }}-${{ matrix.arch }}
