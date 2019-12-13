@@ -1,0 +1,41 @@
+name: Build Release Binaries
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  build:
+    name: Build releases for relevant OSes
+
+    strategy:
+      matrix:
+        os: [darwin, linux]
+        arch: [amd64]
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: action/checkout@v1
+
+      # Cross-compile instructions pulled from
+      # https://hub.docker.com/_/golang/
+      - name: Build project using Docker
+        run: |
+          docker run --rm -v \
+            "$PWD":/usr/src/terraform-provider-pingdom \
+            -w /usr/src/terraform-provider-pingdom \
+            golang:1.13 go build -v -o terraform-provider-pingdom-$GOOS-$GOARCH
+        env:
+          GOOS: ${{ matrix.os }}
+          GOARCH: ${{ matrix.arch }}
+
+      - name: Attach binary to release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./terraform-provider-pingdom-${{ matrix.os }}-${{ matrix.arch }}
+          asset_name: terraform-provider-pingdom-${{ matrix.os }}-${{ matrix.arch }}
+          asset_content_type: application/octet-stream
+
