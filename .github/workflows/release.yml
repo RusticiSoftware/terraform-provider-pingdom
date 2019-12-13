@@ -26,6 +26,7 @@ jobs:
           docker run --rm -v \
             "$PWD":/usr/src/terraform-provider-pingdom \
             -w /usr/src/terraform-provider-pingdom \
+            -e GOOS -e GOARCH \
             golang:1.13 go build -v -o terraform-provider-pingdom-$GOOS-$GOARCH
         env:
           GOOS: ${{ matrix.os }}
