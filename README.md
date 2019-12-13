@@ -14,6 +14,8 @@ on Linux AMD64 the path would be `$HOME/.terraform.d/plugins/linux_amd64`.
 
 After copying the plugin run `terraform init` in your projects that use this provider.
 
+Put your v3 API key in the `PINGDOM_API_TOKEN` environment variable.
+
 ### Dependencies for building from source ###
 
 If you need to build from source, you should have a working Go environment setup.  If not check out the Go [getting started](http://golang.org/doc/install) guide.
@@ -38,14 +40,12 @@ This will place the binary under `$HOME/.terraform.d/plugins/OS_ARCH/terraform-p
 
 ## Usage ##
 
+Put your v3 API key in the `PINGDOM_API_TOKEN` environment variable or pass it to the provider in the `api_key` parameter.
+
 **Basic Check**
 
 ```
-variable "pingdom_api_key" {}
-
-provider "pingdom" {
-    api_key = "${var.pingdom_api_key}"
-}
+provider "pingdom" {}
 
 resource "pingdom_check" "example" {
     type = "http"
